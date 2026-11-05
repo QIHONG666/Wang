@@ -1,0 +1,143 @@
+{
+  "reviewer": "independent-standard-visual-worker",
+  "scope": "Standard rows 0-8 only; no look-direction rows inspected",
+  "verdict": "pass",
+  "method": "Visually inspected the native-cell contact sheet, rendered motion stills and selected exact encoded atlas cells in chronological order; checked GIF frame counts and durations. Did not claim real-time video playback.",
+  "artifacts": [
+    "qa/contact-sheet.png",
+    "qa/standard-previews/motion-stills.png",
+    "qa/standard-previews/encoded-frames",
+    "qa/standard-previews/preview-source.json",
+    "qa/standard-registration.json"
+  ],
+  "states": [
+    {
+      "state": "idle",
+      "verdict": "pass",
+      "evidence": "Six frames preserve a planted front-facing resting pose; eyes close and reopen through frames 2-4, with small calm variation rather than gestures or locomotion."
+    },
+    {
+      "state": "running-right",
+      "verdict": "pass",
+      "evidence": "Eight nose-right, hair-trailing-left poses alternate extended stride and passing-leg silhouettes; arms counter-swing. Apparent head size remains stable and no detached speed or dust effects are visible."
+    },
+    {
+      "state": "running-left",
+      "verdict": "pass",
+      "evidence": "Eight nose-left poses advance through extended and passing-leg silhouettes, with consistent face, original hair construction, striped shirt, dark trousers and white shoes. Cadence remains in leftward direction."
+    },
+    {
+      "state": "waving",
+      "verdict": "pass",
+      "evidence": "Four poses show the attached screen-left arm rise beside the face and lower; hand stays connected through sleeve, planted shoes and head remain steady, no wave marks or loose effects."
+    },
+    {
+      "state": "jumping",
+      "verdict": "pass",
+      "evidence": "Rechecked exact encoded idle00 and all five jumping cells. Head scale now matches idle: head-only alpha>=128 ROI width79px idle, jumping widths79,78,78,77,80px, maximum deviation2.53%. Relative head scanline dy60 idle78px vs jump78,76,76,76,80px. Crouch lowers head naturally before launch, attached arms spread at apex, and feet visibly leave the resting baseline. Opaque foot bottoms202,188,173,187,202px show29px rise and return to the same jumping baseline; landing differs from idle203px by only1px. No clipping, isolated effects or conspicuous head scale pop remains.",
+      "head_only_measurement": {
+        "alpha_threshold": 128,
+        "roi_relative_y": [
+          0,
+          85
+        ],
+        "idle_width": 79,
+        "jump_widths": [
+          79,
+          78,
+          78,
+          77,
+          80
+        ],
+        "max_absolute_difference_px": 2,
+        "max_relative_difference_percent": 2.53
+      },
+      "lift_measurement": {
+        "alpha_threshold": 128,
+        "jump_foot_bottoms": [
+          202,
+          188,
+          173,
+          187,
+          202
+        ],
+        "opaque_lift_px": 29,
+        "landing_delta_from_first_jump_px": 0,
+        "landing_delta_from_idle_px": -1
+      }
+    },
+    {
+      "state": "failed",
+      "verdict": "pass",
+      "evidence": "Eight poses show downturned brows and mouth, drooping head, closed sad eyes and attached hand near face followed by recovery. Readable failure reaction without tears, symbols or loose effects."
+    },
+    {
+      "state": "waiting",
+      "verdict": "pass",
+      "evidence": "Six hopeful front-facing poses move attached hands from clasped to palms-up asking and return, with small head lean; distinct from passive idle and inspecting review."
+    },
+    {
+      "state": "running",
+      "verdict": "pass",
+      "evidence": "Six planted-foot focused-work poses show furrowed eyebrows, chin/hand concentration and both hands purposefully together. No literal foot-running, knee lifts or travel; expression is more intent than review."
+    },
+    {
+      "state": "review",
+      "verdict": "pass",
+      "evidence": "Six poses softly inspect with a hand near chin, narrowed then closed eyes, head lean and return to neutral; gentler checking gesture distinct from work's furrowed effort and waiting's palms-up request."
+    }
+  ],
+  "cross_state_identity": "Black shoulder-length hair and consistent side-parted fringe, fair warm face, gray-white striped shirt, charcoal trousers and white shoes remain recognizable throughout. No new mole or props observed.",
+  "known_finish_work": "Fine cyan hair fringes are visible in some native cells before the parent's required final despill stage; report does not judge final chroma cleanup.",
+  "required_followup": "Final chroma despill and final encoded-atlas acceptance remain with parent workflow; no further standard-motion visual correction required from this review.",
+  "resolved_findings": [
+    {
+      "state": "jumping",
+      "previous": {
+        "concern": "Confirmed head-only mismatch, not arm width: using alpha>=128 and ROI from each frame opaque top to top+85px, idle00 head ROI width79px, jump00 90px (+13.9%), apex02 88px (+11.4%), landing04 92px (+16.5%). At relative head scanline dy60, idle width78px vs jump00 90px and apex87px. These top-head regions end above the hands. Recorded row transforms differ (idle0.863636, jump1.0).",
+        "head_only_measurement": {
+          "alpha_threshold": 128,
+          "roi_relative_y": [
+            0,
+            85
+          ],
+          "idle00": {
+            "top": 33,
+            "x_bounds": [
+              57,
+              136
+            ],
+            "width": 79
+          },
+          "jump00": {
+            "top": 36,
+            "x_bounds": [
+              51,
+              141
+            ],
+            "width": 90
+          },
+          "jump02": {
+            "top": 6,
+            "x_bounds": [
+              52,
+              140
+            ],
+            "width": 88
+          },
+          "jump04": {
+            "top": 35,
+            "x_bounds": [
+              50,
+              142
+            ],
+            "width": 92
+          }
+        },
+        "recommendation": "Use one uniform scale approximately0.88 for the full jumping row around shared x center and ground baseline203, preserving all intentional source displacements; 31px lift becomes approximately27px. Do not fit frames independently. Re-render the idle-jump-idle preview and inspect before final acceptance."
+      },
+      "resolution": "Parent applied one uniform0.88 whole-jumping-row scale about common baseline203, preserving pose order and source vertical displacement; exact encoded atlas cells and previews rebuilt and re-inspected."
+    }
+  ],
+  "recheck_note": "Read-only independent recheck after deterministic jumping-row registration repair; other eight approved rows unchanged."
+}

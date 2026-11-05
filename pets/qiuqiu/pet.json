@@ -1,0 +1,136 @@
+{
+  "name": "球球",
+  "description": "以照片为灵感，黑发、灰白条纹上衣的温柔 Q 版动画伙伴。",
+  "pet_id": "pet_6aec8238cfb08191a96af0594282ecbb",
+  "created_date": "2026-11-05",
+  "timezone": "Asia/Shanghai",
+  "is_custom": true,
+  "is_active_at_delivery": true,
+  "sprite_version": 2,
+  "spritesheet": "spritesheet.png",
+  "sha256": "bd1e5cacebaab8328c488a94a4ed31d9283e37f89b9dce812d01e31001cb63be",
+  "atlas": {
+    "columns": 8,
+    "rows": 11,
+    "cell_width": 192,
+    "cell_height": 208,
+    "width": 1536,
+    "height": 2288
+  },
+  "animations": [
+    {
+      "state": "idle",
+      "row": 0,
+      "frames": 6,
+      "purpose": "calm resting, breathing, and blinking loop"
+    },
+    {
+      "state": "running-right",
+      "row": 1,
+      "frames": 8,
+      "purpose": "rightward drag movement loop"
+    },
+    {
+      "state": "running-left",
+      "row": 2,
+      "frames": 8,
+      "purpose": "leftward drag movement loop"
+    },
+    {
+      "state": "waving",
+      "row": 3,
+      "frames": 4,
+      "purpose": "greeting or attention gesture"
+    },
+    {
+      "state": "jumping",
+      "row": 4,
+      "frames": 5,
+      "purpose": "hover or playful jump"
+    },
+    {
+      "state": "failed",
+      "row": 5,
+      "frames": 8,
+      "purpose": "blocked, failed, or cancelled reaction"
+    },
+    {
+      "state": "waiting",
+      "row": 6,
+      "frames": 6,
+      "purpose": "waiting for approval, help, or user input"
+    },
+    {
+      "state": "running",
+      "row": 7,
+      "frames": 6,
+      "purpose": "active task work or processing"
+    },
+    {
+      "state": "review",
+      "row": 8,
+      "frames": 6,
+      "purpose": "ready or completed output review"
+    },
+    {
+      "state": "look-row-9",
+      "row": 9,
+      "frames": 8,
+      "directions": [
+        "000",
+        "022.5",
+        "045",
+        "067.5",
+        "090",
+        "112.5",
+        "135",
+        "157.5"
+      ],
+      "purpose": "clockwise look directions from up through down-right"
+    },
+    {
+      "state": "look-row-10",
+      "row": 10,
+      "frames": 8,
+      "directions": [
+        "180",
+        "202.5",
+        "225",
+        "247.5",
+        "270",
+        "292.5",
+        "315",
+        "337.5"
+      ],
+      "purpose": "clockwise look directions from down through up-left"
+    }
+  ],
+  "directions_clockwise_degrees": [
+    0,
+    22.5,
+    45,
+    67.5,
+    90,
+    112.5,
+    135,
+    157.5,
+    180,
+    202.5,
+    225,
+    247.5,
+    270,
+    292.5,
+    315,
+    337.5
+  ],
+  "validation": {
+    "structural": true,
+    "pet_quality": true,
+    "blind_cardinals": true,
+    "pets_mcp_preflight": true
+  },
+  "review_notes": [
+    "Near-vertical202.5 horizontal cue is subtle; reviewed in the labeled ordered loop.",
+    "157.5 to180 pixel-difference outlier reviewed with stable anchor and continuous direction."
+  ]
+}
